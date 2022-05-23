@@ -9,7 +9,7 @@
                 <span class="font-semibold text-white">Generate</span>
             </a>
             <a class="px-6 py-3 text-center bg-white rounded-full border shadow-lg shadow-blue-600/50 hover:cursor-pointer"
-               href="{{ route('certificate.validate') }}">
+               href="{{ route('certificate.manual-validate') }}">
                 <span class="font-semibold text-blue-600">Validate</span>
             </a>
         </div>

@@ -37,6 +37,10 @@ Route::get('/validate-certificate/{certificate:validation_key}', function (Certi
     return view('certificate.validate', compact('certificate'));
 })->name('certificate.validate');
 
+Route::get('/manual-validate-certificate', function () {
+    return 'manual validation page';
+})->name('certificate.manual-validate');
+
 Route::get('/certificates/{certificate:validation_key}', [CertificateController::class, 'show'])
     ->name('certificates.show');
 
