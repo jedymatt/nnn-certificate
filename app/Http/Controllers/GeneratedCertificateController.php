@@ -25,6 +25,6 @@ class GeneratedCertificateController extends Controller
 
         $certificate = Certificate::create($validated);
 
-        return redirect()->route('certificates.show', $certificate);
+        return redirect()->route('certificate-export-pdf', $certificate);
     }
 }
