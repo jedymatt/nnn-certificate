@@ -23,6 +23,7 @@ class CertificateExportedPdfController extends Controller
 
         $pdf = Pdf::loadView('export-pdf.certificate', compact('certificate', 'startOfNovember', 'endOfNovember', 'qrCode'));
         $pdf->setPaper('A4', 'landscape');
+
         return $pdf->stream('nnn-certificate-'. now()->timestamp .'.pdf');
     }
 }
