@@ -19,11 +19,6 @@ mix.js('resources/js/app.js', 'public/js')
 mix.vue()
     .alias({
         '@': './resources/js',
-    })
-    .webpackConfig({
-        output: {
-            chunkFilename: 'js/[name].js?id=[chunkhash]',
-        }
     });
 
 mix.disableNotifications();
