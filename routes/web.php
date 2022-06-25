@@ -34,24 +34,7 @@ Route::get('/certificate/view/{certificate:validation_key}', function (Certifica
 })
     ->name('certificates.view');
 
-// Route::get('/generate-certificate', [GeneratedCertificateController::class, 'create'])
-//     ->name('certificate.generate');
-
-// Route::post('/generate-certificate', [GeneratedCertificateController::class, 'store']);
-
-// Route::get('/generated-certificate/{certificate:validation_key}', [GeneratedCertificateController::class, 'show'])
-//     ->name('certificate.generated');
-
-// Route::get('/validate-certificate/{certificate:validation_key}', function (Certificate $certificate) {
-//     return view('certificate.validate', compact('certificate'));
-// })->name('certificate.validate');
-
-// Route::get('/manual-validate-certificate', function () {
-//     return 'manual validation page';
-// })->name('certificate.manual-validate');
-
-// Route::get('/certificates/{certificate:validation_key}', [CertificateController::class, 'show'])
-//     ->name('certificates.show');
-
-// Route::get('/certificate-export-pdf/{certificate:validation_key}', [CertificateExportedPdfController::class, 'show'])
-//     ->name('certificate-export-pdf');
+Route::get('/verify-certificate/scanned/{certificate:validation_key}', function (Certificate $certificate) {
+    return Inertia::render('ScannedCertificateVerificationPage', compact('certificate'));
+})
+    ->name('verify-certificate.scanned');
