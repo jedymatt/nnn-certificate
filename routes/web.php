@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Certificate\GeneratedCertificateController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Certificate;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,13 @@ Route::get('/certificates/generate', [GeneratedCertificateController::class, 'cr
 
 
 Route::post('/certificates/generate', [GeneratedCertificateController::class, 'store']);
+
+Route::get('/certificate/view/{certificate:validation_key}', function (Certificate $certificate) {
+    return Inertia::render('ViewCertificatePage', [
+        'certificate' => $certificate,
+    ]);
+})
+    ->name('certificates.view');
 
 // Route::get('/generate-certificate', [GeneratedCertificateController::class, 'create'])
 //     ->name('certificate.generate');
