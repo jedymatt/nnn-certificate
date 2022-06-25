@@ -10,11 +10,12 @@ const appName = window.document.getElementsByTagName('title')[0]?.innerText || '
 
 createInertiaApp({
     title: (title) => `${title} | ${appName}`,
-    resolve: name => require(`./Pages/${name}`),
+    resolve: name => import(`./Pages/${name}`),
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
-        .use(plugin)
-        .mount(el)
+            .use(plugin)
+            .mixin({ methods: { route } })
+            .mount(el)
     },
 });
 
