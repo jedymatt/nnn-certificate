@@ -20,12 +20,12 @@ class GeneratedCertificateController extends Controller
             'name' => 'required|string',
         ]);
 
-        Certificate::create([
+        $certificate = Certificate::create([
             'name' => $validated['name'],
             'validation_key' => str()->uuid()->toString(),
             'issue_date' => today(),
         ]);
 
-        return redirect()->route('welcome');
+        return redirect()->route('certificates.view', $certificate);
     }
 }
