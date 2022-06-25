@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use Illuminate\Support\Str;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return Inertia::render('WelcomePage');
 });
 
 Route::get('/generate-certificate', [GeneratedCertificateController::class, 'create'])
