@@ -16,4 +16,20 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
     ]);
 
+mix.vue()
+    .alias({
+        '@': './resources/js',
+    });
+
 mix.disableNotifications();
+
+if (mix.inProduction()) {
+    mix.version();
+}
+
+mix.webpackConfig({
+    devServer: {
+        host: "0.0.0.0",
+        port: 8080,
+    },
+});
