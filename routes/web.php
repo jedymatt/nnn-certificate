@@ -1,9 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Certificate\GeneratedCertificateController;
+use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\VerifiedCertificateController;
 use App\Http\Controllers\WelcomeController;
 use App\Models\Certificate;
+use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 /*
@@ -21,20 +22,16 @@ Route::get('/', [WelcomeController::class, 'show'])
     ->name('welcome');
 
 
-Route::get('/certificates/generate', [GeneratedCertificateController::class, 'create'])
-    ->name('certificates.generate');
+Route::get('/certificate/generate', [CertificateController::class, 'create'])
+    ->name('certificate.generate');
 
+Route::post('/certificate/generate', [CertificateController::class, 'store']);
 
-Route::post('/certificates/generate', [GeneratedCertificateController::class, 'store']);
+Route::get('/certificate/view/{certificate:validation_key}', [CertificateController::class, 'show'])
+    ->name('certificate.view');
 
-Route::get('/certificate/view/{certificate:validation_key}', function (Certificate $certificate) {
-    return Inertia::render('ViewCertificatePage', [
-        'certificate' => $certificate,
-    ]);
-})
-    ->name('certificates.view');
+Route::get('/certificate/verify', [VerifiedCertificateController::class, 'create'])
+    ->name('certificate.verify');
 
-Route::get('/verify-certificate/scanned/{certificate:validation_key}', function (Certificate $certificate) {
-    return Inertia::render('ScannedCertificateVerificationPage', compact('certificate'));
-})
-    ->name('verify-certificate.scanned');
+Route::get('/certificate/verify/result/{certificate:validation_key}', [VerifiedCertificateController::class, 'show'])
+    ->name('certificate.verify.result');
