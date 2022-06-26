@@ -29,8 +29,6 @@ const downloadPdf = async () => {
         width: 128.5,
     });
 
-    console.log(qrCode)
-
     const pdf = generateCertificate({
         displayName: displayName.toUpperCase(),
         description,
