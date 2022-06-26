@@ -20,11 +20,11 @@ const downloadPdf = async () => {
     of No Nut November: Worldwide held on ${novemberStart} to ${novemberEnd}.
     Given to this ${issueDate}.`;
 
-    const valiidationLink = route('verify-certificate.scanned', {
+    const validationLink = route('certificate.verify.result', {
         certificate: props.certificate,
     });
 
-    const qrCode = await QRCode.toDataURL(valiidationLink, {
+    const qrCode = await QRCode.toDataURL(validationLink, {
         type: 'image/png',
         width: 128.5,
     });
