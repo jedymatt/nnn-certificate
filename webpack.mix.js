@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const webpackConfig = require('./webpack.config')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -27,9 +27,4 @@ if (mix.inProduction()) {
     mix.version();
 }
 
-mix.webpackConfig({
-    devServer: {
-        host: "0.0.0.0",
-        port: 8080,
-    },
-});
+mix.webpackConfig(webpackConfig)
