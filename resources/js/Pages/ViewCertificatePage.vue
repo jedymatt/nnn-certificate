@@ -12,13 +12,18 @@ const props = defineProps({
 const downloadPdf = async () => {
     const displayName = props.certificate.display_name;
 
-    const novemberStart = moment().month(10).date(1).format('MMMM D, YYYY');
-    const novemberEnd = moment().month(10).endOf('month').format('MMMM D, YYYY');
-    const issueDate = moment(props.certificate.issue_date).format('Do [day of] MMMM[,] YYYY');
+    const issueDate = moment(props.certificate.issue_date);
+
+    const issueDateString = issueDate.format('Do [day of] MMMM[,] YYYY');
+
+    const november = issueDate < moment().month(10) ? moment().month(10).subtract(1, 'year') : moment().month(10);
+
+    const novemberStartString = november.date(1).format('MMMM D, YYYY');
+    const novemberEndString = november.month(10).endOf('month').format('MMMM D, YYYY');
 
     const description = `As a NNN survivor during the conduct
-    of No Nut November: Worldwide held on ${novemberStart} to ${novemberEnd}.
-    Given to this ${issueDate}.`;
+    of No Nut November: Worldwide held on ${novemberStartString} to ${novemberEndString}.
+    Given to this ${issueDateString}.`;
 
     const validationLink = route('certificate.verify.result', {
         certificate: props.certificate,
