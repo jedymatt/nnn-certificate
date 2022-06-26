@@ -24,7 +24,7 @@ https://nnn-certificate.herokuapp.com
 
 Clone the project
 
-```shell
+```bash
 git clone https://github.com/jedymatt/nnn-certificate.git
 ```
 
@@ -36,38 +36,38 @@ cd nnn-certificate
 
 Add .env file
 
-```shell
+```bash
 cp .env.example .env
 ```
 
 Install the dependencies
 
-```shell
+```bash
 composer install
 npm install
 ```
 
 Recompile assets
 
-```shell
+```bash
 npm run dev
 ```
 
 Populate the tables to the database
 
-```shell
+```bash
 php artisan migrate
 ```
 
 Generate app key
 
-```shell
+```bash
 php artisan key:generate
 ```
 
 Start the server
 
-```shell
+```bash
 php artisan serve
 ```
 
