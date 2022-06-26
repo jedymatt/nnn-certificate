@@ -1,26 +1,27 @@
 <script setup>
-import {Head, Link} from '@inertiajs/inertia-vue3';
+import { Link} from '@inertiajs/inertia-vue3';
+import {PlusIcon} from '@heroicons/vue/solid'
+import {DocumentSearchIcon} from '@heroicons/vue/solid'
+import Header from "@/Layouts/Header";
 </script>
 
 <template>
-    <Head>
-        <title>Welcome</title>
-    </Head>
-    <div class=" top-0 w-full flex flex-col items-center justify-center min-h-screen p-2 from-blue-100 to-blue-400">
-        <h1
-            class="font-black text-center text-transparent text-7xl bg-clip-text bg-gradient-to-r from-blue-400 to-blue-800 drop-shadow-lg">
-            NNN Certificate</h1>
-        <div class="flex flex-row gap-6 mt-4">
-            <Link
-                class="px-6 py-3 text-center rounded-full shadow-lg bg-gradient-to-r from-blue-400 to-blue-500 shadow-blue-600/50 hover:cursor-pointer"
-                :href="route('certificate.generate')">
-                <span class="font-semibold text-white">Generate</span>
+    <Header title="Welcome" />
+
+    <main class="min-h-screen flex flex-col justify-center items-center container py-16 px-4">
+        <h1 class="text-5xl font-black text-indigo-500 text-center lg:text-6xl hover:text-indigo-600 pb-10">NNN Certificate</h1>
+        <div class="flex flex-row space-x-4">
+            <Link :href="route('certificate.create')"
+                  class="btn">
+                <PlusIcon class="w-5 h-5"/>
+                Create
             </Link>
-            <a class="px-6 py-3 text-center bg-white border rounded-full shadow-lg shadow-blue-600/50 hover:cursor-pointer"
-               :href="route('certificate.verify')">
-                <span class="font-semibold text-blue-600">Validate</span>
-            </a>
+            <Link :href="route('certificate.verify')"
+                  class="btn">
+                <DocumentSearchIcon class="w-5 h-5" />
+                Verify
+            </Link>
         </div>
-    </div>
+    </main>
 
 </template>
