@@ -6,7 +6,7 @@ const form = useForm({
 })
 
 const submit = () => {
-    form.post(route('certificates.generate'));
+    form.post(route('certificate.generate'));
 }
 </script>
 
