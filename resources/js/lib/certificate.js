@@ -4,6 +4,7 @@ export default function generateCertificate({ displayName, description, qrCode, 
     const doc = new jsPDF({
         orientation: 'landscape',
         unit: 'cm',
+        compress: true,
     });
 
     doc.addFont('/fonts/Vollkorn/Vollkorn-VariableFont_wght.ttf', 'Vollkorn', 'normal');
@@ -11,18 +12,20 @@ export default function generateCertificate({ displayName, description, qrCode, 
 
     doc.addImage('/images/certificate.png', 'PNG', 0, 0, 29.7, 21);
 
-    doc.setFont('Vollkorn')
+    doc
+        .setFont('Vollkorn')
         .setFontSize(52)
         .text(displayName, 14.8, 10.22, {
             align: 'center',
-        });
+        })
 
-    doc.setFont('Roboto')
+    doc
+        .setFont('Roboto')
         .setFontSize(12)
         .text(description, 14.8, 12.0, {
             align: 'center',
             lineHeightFactor: 1.52,
-        });
+        })
 
 
     doc.addImage(qrCode, 'PNG', 13.2, 15.0, 3.4, 3.4);
