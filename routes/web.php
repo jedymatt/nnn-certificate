@@ -22,10 +22,10 @@ Route::get('/', [WelcomeController::class, 'show'])
     ->name('welcome');
 
 
-Route::get('/certificate/generate', [CertificateController::class, 'create'])
-    ->name('certificate.generate');
+Route::get('/certificate/create', [CertificateController::class, 'create'])
+    ->name('certificate.create');
 
-Route::post('/certificate/generate', [CertificateController::class, 'store']);
+Route::post('/certificate/create', [CertificateController::class, 'store']);
 
 Route::get('/certificate/view/{certificate:validation_key}', [CertificateController::class, 'show'])
     ->name('certificate.view');
