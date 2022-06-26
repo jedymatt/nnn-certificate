@@ -31,7 +31,7 @@ git clone https://github.com/jedymatt/nnn-certificate.git
 Go to the project directory
 
 ```bash
-  cd nnn-certificate
+cd nnn-certificate
 ```
 
 Add .env file
