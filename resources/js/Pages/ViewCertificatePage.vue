@@ -10,7 +10,7 @@ const props = defineProps({
 });
 
 const downloadPdf = async () => {
-    const name = props.certificate.name.toUpperCase();
+    const displayName = props.certificate.display_name;
 
     const novemberStart = moment().month(10).date(1).format('MMMM D, YYYY');
     const novemberEnd = moment().month(10).endOf('month').format('MMMM D, YYYY');
@@ -32,14 +32,22 @@ const downloadPdf = async () => {
     console.log(qrCode)
 
     const pdf = generateCertificate({
-        name,
+        displayName: displayName.toUpperCase(),
         description,
         qrCode,
         validationKey: props.certificate.validation_key,
     });
 
-    pdf.save('certificate_' + name + '.pdf');
+    pdf.save('certificate_' + slugify(displayName, '_') + '.pdf');
 }
+
+const slugify = (str, separator = '-') =>
+    str
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/[\s_-]+/g, separator)
+        .replace(/^-+|-+$/g, '');
 </script>
 <template>
 

@@ -1,6 +1,6 @@
 import { jsPDF } from 'jspdf'
 
-export default function generateCertificate({ name, description, qrCode, validationKey }) {
+export default function generateCertificate({ displayName, description, qrCode, validationKey }) {
     const doc = new jsPDF({
         orientation: 'landscape',
         unit: 'cm',
@@ -13,7 +13,7 @@ export default function generateCertificate({ name, description, qrCode, validat
 
     doc.setFont('Vollkorn')
         .setFontSize(52)
-        .text(name, 14.8, 10.22, {
+        .text(displayName, 14.8, 10.22, {
             align: 'center',
         });
 

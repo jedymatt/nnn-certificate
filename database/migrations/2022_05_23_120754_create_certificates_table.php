@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->uuid('validation_key')->unique();
+            $table->string('display_name');
+            $table->string('validation_key')->unique();
             $table->date('issue_date');
             $table->timestamps();
         });

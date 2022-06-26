@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Certificate;
 
 use App\Http\Controllers\Controller;
 use App\Models\Certificate;
+use App\Services\CertificateService;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -14,15 +15,15 @@ class GeneratedCertificateController extends Controller
         return Inertia::render('GenerateCertificatePage');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, CertificateService $certificateService)
     {
         $validated = $request->validate([
-            'name' => 'required|string',
+            'display_name' => 'required|string',
         ]);
 
         $certificate = Certificate::create([
-            'name' => $validated['name'],
-            'validation_key' => str()->uuid()->toString(),
+            'display_name' => $validated['display_name'],
+            'validation_key' => $certificateService->generateValidationKey(),
             'issue_date' => today(),
         ]);
 

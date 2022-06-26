@@ -2,7 +2,7 @@
 import { useForm } from "@inertiajs/inertia-vue3";
 
 const form = useForm({
-    name: '',
+    display_name: '',
 })
 
 const submit = () => {
@@ -16,7 +16,7 @@ const submit = () => {
             <form @submit.prevent="submit">
                 <label>
                     Name
-                    <input class="w-full mt-1 rounded-lg" type="text" v-model="form.name" placeholder="Juan Dela Cruz"
+                    <input class="w-full mt-1 rounded-lg" type="text" v-model="form.display_name" placeholder="Juan Dela Cruz"
                         required>
                 </label>
 
