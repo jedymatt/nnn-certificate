@@ -47,7 +47,7 @@ composer install
 npm install
 ```
 
-Recomile assets
+Recompile assets
 
 ```shell
 npm run dev
