@@ -6,7 +6,8 @@
     .btn {
         @apply px-6 py-3 bg-indigo-500 hover:bg-indigo-600 rounded-md text-white
         font-medium inline-flex items-center gap-1 shadow-lg hover:shadow-none
-        shadow-indigo-700/50 focus:ring focus:ring-indigo-400/50 focus:shadow-none;
+        shadow-indigo-700/50 focus:ring focus:ring-indigo-400/50 focus:shadow-none
+        transition;
     }
 
     .form-btn {
