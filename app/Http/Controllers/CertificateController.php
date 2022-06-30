@@ -11,7 +11,7 @@ class CertificateController extends Controller
 {
     public function create()
     {
-        return Inertia::render('CreateCertificatePage.vue');
+        return Inertia::render('CreateCertificatePage');
     }
 
     public function store(Request $request, CertificateService $certificateService)
