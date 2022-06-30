@@ -1,6 +1,6 @@
 <script setup>
 import {useForm, Head} from "@inertiajs/inertia-vue3";
-import Header from "@/Layouts/Header";
+import Header from "@/Layouts/Header.vue";
 
 const form = useForm({
     display_name: '',
