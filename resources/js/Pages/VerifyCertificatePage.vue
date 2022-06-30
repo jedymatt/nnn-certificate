@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import {Inertia} from "@inertiajs/inertia";
-import Header from "@/Layouts/Header";
+import Header from "@/Layouts/Header.vue";
 
 const validationKey = ref('');
 
