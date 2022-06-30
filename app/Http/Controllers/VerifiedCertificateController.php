@@ -10,11 +10,11 @@ class VerifiedCertificateController extends Controller
 {
     public function create()
     {
-        return Inertia::render('VerifyCertificatePage.vue');
+        return Inertia::render('VerifyCertificatePage');
     }
 
     public function show(Certificate $certificate)
     {
-        return Inertia::render('VerificationCertificateResultPage.vue', compact('certificate'));
+        return Inertia::render('VerificationCertificateResultPage', compact('certificate'));
     }
 }
