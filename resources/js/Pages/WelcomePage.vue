@@ -2,7 +2,7 @@
 import { Link} from '@inertiajs/inertia-vue3';
 import {PlusIcon} from '@heroicons/vue/solid'
 import {DocumentSearchIcon} from '@heroicons/vue/solid'
-import Header from "@/Layouts/Header";
+import Header from "@/Layouts/Header.vue";
 </script>
 
 <template>
