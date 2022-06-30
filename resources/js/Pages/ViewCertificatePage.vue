@@ -2,7 +2,7 @@
 import generateCertificate from '@/lib/certificate';
 import moment from 'moment';
 import QRCode from 'qrcode';
-import Header from "@/Layouts/Header";
+import Header from "@/Layouts/Header.vue";
 
 
 const props = defineProps({
