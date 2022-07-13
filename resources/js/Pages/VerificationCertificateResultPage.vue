@@ -1,10 +1,17 @@
 <script setup>
+import { Head } from '@inertiajs/inertia-vue3';
+import AppLayout from '@/Layouts/AppLayout.vue';
 defineProps({
     certificate: Object,
 });
 </script>
 <template>
-    <div class="min-h-screen flex flex-col gap-2 justify-center items-center">
+
+    <Head>
+        <title>{{ certificate.display_name }}</title>
+    </Head>
+
+    <main class="dark:bg-neutral-900  dark:text-white min-h-screen flex flex-col gap-2 justify-center items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-green-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -16,5 +23,5 @@ defineProps({
                 is a verified NNN Survivor!
             </p>
         </div>
-    </div>
+    </main>
 </template>
