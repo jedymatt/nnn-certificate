@@ -2,7 +2,8 @@
 import generateCertificate from '@/lib/certificate';
 import moment from 'moment';
 import QRCode from 'qrcode';
-import Header from "@/Layouts/Header.vue";
+import AppLayout from '@/Layouts/AppLayout.vue';
+import { Head } from '@inertiajs/inertia-vue3';
 
 
 const props = defineProps({
@@ -53,26 +54,28 @@ const slugify = (str, separator = '-') =>
         .replace(/^-+|-+$/g, '');
 </script>
 <template>
-    <Header title="View Certificate"/>
-    <main class="flex items-center justify-center py-12 min-h-screen px-4">
-        <div class="max-w-3xl flex flex-col items-center space-y-4">
-            <div class="relative group shadow-md border rounded-md overflow-clip">
-                <div class="relative">
-                    <img class="blur-sm group-hover:blur-none h-48 object-cover hover:blur-sm"
-                         src="/images/certificate_example.png"
-                         alt="Example">
-                </div>
-                <div
-                    class="group-hover:opacity-0 absolute top-0 h-full w-full flex items-center justify-center font-medium text-xl">
-                    Example
-                </div>
-            </div>
-            <button
-                class="form-btn"
-                @click="downloadPdf">
-                Download Certificate as PDF
-            </button>
 
-        </div>
-    </main>
+    <Head>
+        <title>View Certificate</title>
+    </Head>
+    <AppLayout>
+        <main class="flex items-center justify-center py-12 min-h-screen px-4">
+            <div class="max-w-3xl flex flex-col items-center space-y-4">
+                <div class="relative group shadow-md border rounded-md overflow-clip">
+                    <div class="relative">
+                        <img class="blur-sm group-hover:blur-none h-48 object-cover hover:blur-sm"
+                            src="/images/certificate_example.png" alt="Example">
+                    </div>
+                    <div
+                        class="group-hover:opacity-0 absolute top-0 h-full w-full flex items-center justify-center font-medium text-xl">
+                        Example
+                    </div>
+                </div>
+                <button class="form-btn" @click="downloadPdf">
+                    Download Certificate as PDF
+                </button>
+
+            </div>
+        </main>
+    </AppLayout>
 </template>
