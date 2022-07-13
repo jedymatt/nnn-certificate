@@ -7,6 +7,7 @@ module.exports = {
         './resources/**/*.vue',
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
     ],
+    darkMode: 'class',
     theme: {
         extend: {},
     },
