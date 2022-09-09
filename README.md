@@ -9,11 +9,6 @@ NNN Certificate Generator
 ![image](https://user-images.githubusercontent.com/54795428/175811198-1ce3ad00-1814-4427-b94c-a602876d9214.png)
 
 
-## Demo
-
-https://nnn-certificate.herokuapp.com
-
-
 ## Prerequisites
 
 * XAMPP or Docker
